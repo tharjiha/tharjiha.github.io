@@ -1,4 +1,4 @@
-# 🌐 [LINK]
+# 🌐 [tharjiha.site](https://tharjiha.github.io)
 
 This is my personal website where I share my projects, skills, and interests in software and data engineering. It serves as a central hub for my portfolio, resume, and experiments with new tech.
 
