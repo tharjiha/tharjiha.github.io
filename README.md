@@ -4,4 +4,4 @@ This is my personal website where I share my projects, skills, and interests in 
 
 *The site is constantly being updated as I build new projects and improve existing ones, so check back often for fresh content and features!*
 
-*This site is only Desktop friendly*
+💻 This site is only Desktop friendly 💻
