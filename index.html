@@ -11,12 +11,135 @@
 
     <!-- tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background: radial-gradient(circle, #D9D8FF 0%, #C3C3FF 100%);
+        }
+
+        .tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #7d7de4;
+            transition: width 0.3s ease;
+        }
+
+        .tab-button.active::after {
+            width: 100%;
+        }
+
+        .tab-button:hover {
+            color: #7d7de4;
+        }
+
+        .skill-tag {
+            background: rgba(125, 125, 228, 0.1);
+            border: 1px solid rgba(125, 125, 228, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(125, 125, 228, 0.2);
+            border-color: rgba(125, 125, 228, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(125, 125, 228, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(125, 125, 228, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(125, 125, 228, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #f0f0ff 0%, #e8e8ff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(125, 125, 228, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #7d7de4;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #5d5dc4;
+        }
+    </style>
 </head>
 
-<body class="min-h-screen text-white" style="background: radial-gradient(circle, #D9D8FF 0%, #C3C3FF 100%);">
+<body class="min-h-screen text-white">
 
     <!-- fixed top navbar -->
-
     <nav class="fixed top-0 w-full bg-black z-50">
         <div class="w-full px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 flex justify-end">
             <!-- buttons  -->
@@ -40,20 +163,20 @@
             <div class="flex flex-col items-start">
                 <h1 id="hover-text"
                     class="text-3xl text-black border-b-2 border-black border-opacity-50 mb-4 cursor-pointer">
-                    uoft cs & stats&nbsp&nbsp&nbsp
+                    cs + stats @ uoft&nbsp&nbsp&nbsp
                 </h1>
 
                 <script>
                     const phrases = [
-                        "aspiring swe\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
-                        "aspiring data eng",
-                        "uoft cs & stats\u00A0\u00A0\u00A0"
+                        "software eng\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
+                        "data engineer",
+                        "cs + stats @ uoft\u00A0\u00A0\u00A0"
                     ];
                     let index = 0;
                     const el = document.getElementById("hover-text");
 
                     el.addEventListener("mouseenter", () => {
-                        index = (index + 1) % phrases.length; // cycle through array
+                        index = (index + 1) % phrases.length;
                         el.textContent = phrases[index];
                     });
                 </script>
@@ -76,7 +199,6 @@
 
             <!-- middle -->
             <div class="flex justify-center">
-                <!-- Show memoji2.png on small screens, memoji.png on medium and up -->
                 <img src="picture/memoji2.png" alt="Memoji Small" class="block md:hidden w-40 h-auto">
                 <img src="picture/memoji.png" alt="Memoji" class="hidden md:block w-70 h-auto">
             </div>
@@ -91,43 +213,255 @@
             </div>
         </div>
         <!-- scroll down animation -->
-        <!-- <div id="scroll-down-anim"
+        <div id="scroll-down-anim"
             class="absolute left-1/2 bottom-8 transform -translate-x-1/2 z-30 flex flex-col items-center transition-opacity duration-300">
             <span class="text-black text-lg mb-1"></span>
             <svg class="animate-bounce w-8 h-8 text-[#7d7de4]" fill="none" stroke="currentColor" stroke-width="2"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
-        </div> -->
+        </div>
     </div>
 
 
-    <!-- Blurb section: hidden until scrolled into view -->
-    <!-- <div id="blurb-section"
-        class="opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center min-h-[60vh] w-full mt-0">
-        <div class="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl gap-8 px-0 pb-40">
-            <div class="flex-shrink-0 flex justify-center w-full md:w-1/2 mb-6 md:mb-0">
-                <img src="picture/memoji3.png" alt="Memoji" class="w-128 h-128 object-contain rounded-full bg-white" />
-            </div>
-            <div class="w-full md:w-4/5 text-black bg-opacity-80 rounded-xl border-2 border-black p-10 text-2xl">
-                <h2 class="text-3xl mb-4">ABOUT ME</h2>
-                <p class="text-xl">
-                    Hi 👋🏾, I'm Tharjiha, a passionate developer who loves building practical projects, from backend
-                    systems
-                    to full-stack apps. I enjoy exploring how data and code can solve real-world problems, and I'm
-                    always eager to learn new things and collaborate with others.
-                </p>
+    <!-- about me section with tabs -->
+    <div id="blurb-section"
+        class="opacity-0 transition-opacity duration-700 flex flex-col items-center justify-center min-h-screen w-full py-20">
+        <div class="w-full max-w-6xl px-6">
+
+            <!-- two column layout -->
+            <div class="flex flex-col md:flex-row gap-12 items-start mb-12">
+                <!-- left -->
+                <div
+                    class="flex-shrink-0 w-full md:w-1/3 flex items-center justify-center rounded-3xl shadow-lg overflow-hidden relative">
+                    <img src="picture/pfp.png">
+                </div>
+
+                <!-- rigth -->
+                <div class="w-full md:w-2/3">
+                    <!-- header -->
+                    <div class="mb-8">
+                        <h1 class="text-4xl md:text-3xl mb-4 text-black">about me</h1>
+                        <p class="text-base md:text-lg leading-relaxed text-black">
+                            hi 👋🏾, i’m tharjiha, studying computer science (software engineering) and statistics at
+                            the university of toronto, building thoughtful solutions through code and data.
+                        </p>
+                    </div>
+
+                    <!-- tabs navigation -->
+                    <div class="flex gap-6 mb-6 border-b-2 border-black border-opacity-30 pb-2">
+                        <button class="tab-button active text-xl md:text-xl text-black" data-tab="techstack">tech
+                            stack</button>
+                        <button class="tab-button text-xl md:text-xl text-gray-600" data-tab="projects">current
+                            project</button>
+                    </div>
+
+                    <!-- tab content -->
+                    <div id="tab-content" class="mt-6">
+                        <div id="techstack-content" class="tab-content">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="category-card p-6 rounded-xl text-center" onclick="openModal('languages')">
+                                    <div class="text-4xl mb-2">💻</div>
+                                    <h3 class="text-lg text-black">languages</h3>
+                                </div>
+                                <div class="category-card p-6 rounded-xl text-center" onclick="openModal('frameworks')">
+                                    <div class="text-4xl mb-2">📚</div>
+                                    <h3 class="text-lg text-black">frameworks & libraries</h3>
+                                </div>
+                                <div class="category-card p-6 rounded-xl text-center" onclick="openModal('databases')">
+                                    <div class="text-4xl mb-2">🗄️</div>
+                                    <h3 class="text-lg text-black">databases</h3>
+                                </div>
+                                <div class="category-card p-6 rounded-xl text-center" onclick="openModal('design')">
+                                    <div class="text-4xl mb-2">🎨</div>
+                                    <h3 class="text-lg text-black">design tools</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- current project tab -->
+                        <div id="projects-content" class="tab-content hidden">
+                            <div
+                                class="bg-white bg-opacity-40 rounded-xl p-6 border-2 border-[#7d7de4] border-opacity-40 shadow-lg">
+                                <h4 class="text-2xl font-medium text-black mb-3">SMART AIR</h4>
+                                <p class="text-base text-black mb-4 leading-relaxed">
+                                    CSCB07 Project - a kid-friendly Android app that helps children with asthma.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span
+                                        class="text-sm px-3 py-1 bg-[#7d7de4] bg-opacity-30 rounded-full text-black ">Java</span>
+                                    <span
+                                        class="text-sm px-3 py-1 bg-[#7d7de4] bg-opacity-30 rounded-full text-black ">AndroidStudio</span>
+                                </div>
+                                <a href="#" class="text-[#7d7de4] hover:underline">view project →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
+    <!-- modals for tech stack categories -->
+    <!-- languages modal -->
+    <div id="languages-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('languages')">&times;</span>
+            <h2 class="text-3xl mb-6 text-[#7d7de4]">languages</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">C</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                        alt="C++" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">C++</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Java</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Python</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Swift</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">R</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                        alt="TypeScript" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">TypeScript</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Bash</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unix/unix-original.svg" alt="Unix"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Unix</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Linux</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <svg class="w-12 h-12 mb-2" viewBox="0 0 24 24" fill="#7d7de4">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7v-2z" />
+                    </svg>
+                    <span class="text-xs text-black text-center">SQL</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <svg class="w-12 h-12 mb-2" viewBox="0 0 24 24" fill="#7d7de4">
+                        <path
+                            d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 10.18l7 3.5v7.14l-7-3.5v-7.14zm16 0v7.14l-7 3.5v-7.14l7-3.5z" />
+                    </svg>
+                    <span class="text-xs text-black text-center">Assembly</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- frameworks modal -->
+    <div id="frameworks-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('frameworks')">&times;</span>
+            <h2 class="text-3xl mb-6 text-[#7d7de4]">frameworks & libraries</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Flask</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+                        alt="FastAPI" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">FastAPI</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">React</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- databases modal -->
+    <div id="databases-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('databases')">&times;</span>
+            <h2 class="text-3xl mb-6 text-[#7d7de4]">databases</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">MySQL</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+                        alt="SQLite" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">SQLite</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- design & tools modal -->
+    <div id="design-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('design')">&times;</span>
+            <h2 class="text-3xl  mb-6 text-[#7d7de4]">design & tools</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Figma</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"
+                        alt="Photoshop" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Photoshop</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg"
+                        alt="Illustrator" class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Illustrator</span>
+                </div>
+                <div class="flex flex-col items-center skill-tag p-3 rounded-lg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva"
+                        class="w-12 h-12 mb-2">
+                    <span class="text-xs text-black text-center">Canva</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Blurb section fade-in on scroll
+        // blurb section fade-in on scroll
         const blurbSection = document.getElementById('blurb-section');
         function handleBlurbFade() {
             const rect = blurbSection.getBoundingClientRect();
@@ -138,9 +472,9 @@
             }
         }
         window.addEventListener('scroll', handleBlurbFade);
-        // In case already in view
         handleBlurbFade();
-        // Hide scroll down animation when not in top half
+
+        // hide scroll down animation when not in top half
         const scrollAnim = document.getElementById('scroll-down-anim');
         function handleScrollAnim() {
             if (window.scrollY < window.innerHeight / 2) {
@@ -153,7 +487,53 @@
         }
         window.addEventListener('scroll', handleScrollAnim);
         handleScrollAnim();
+
+        // tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // remove active class from all buttons
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'text-black');
+                    btn.classList.add('text-gray-600');
+                });
+
+                // add active class to clicked button
+                button.classList.add('active', 'text-black');
+                button.classList.remove('text-gray-600');
+
+                // hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+
+                // show selected tab content
+                document.getElementById(`${tabName}-content`).classList.remove('hidden');
+            });
+        });
     });
+
+    // modal functions
+    function openModal(category) {
+        const modal = document.getElementById(category + '-modal');
+        modal.classList.add('show');
+    }
+
+    function closeModal(category) {
+        const modal = document.getElementById(category + '-modal');
+        modal.classList.remove('show');
+    }
+
+    // close modal when clicking outside
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.classList.remove('show');
+        }
+    }
 </script>
 
 </html>
