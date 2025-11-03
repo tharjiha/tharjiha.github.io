@@ -134,6 +134,22 @@
         .close-btn:hover {
             color: #5d5dc4;
         }
+
+        /* Mobile-specific hero layout */
+        @media (max-width: 767px) {
+            .hero-container {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .hero-left {
+                align-items: center !important;
+            }
+
+            .hero-right {
+                align-items: center !important;
+            }
+        }
     </style>
 </head>
 
@@ -145,41 +161,26 @@
             <!-- buttons  -->
             <div class="flex space-x-2 sm:space-x-3 md:space-x-4">
                 <a href="index.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">ABOUT</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">ABOUT</a>
                 <a href="project.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">PROJECTS</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">PROJECTS</a>
                 <a href="experience.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">EXPERIENCE</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">EXPERIENCE</a>
                 <a href="contact.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">CONTACT</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">CONTACT</a>
             </div>
         </div>
     </nav>
 
     <!-- sections -->
-    <div class="w-full flex items-center justify-center min-h-screen pt-0">
-        <div class="flex items-center justify-center w-full max-w-5xl">
+    <div class="w-full flex items-center justify-center min-h-screen pt-0 px-4 md:px-0">
+        <div class="hero-container flex items-center justify-center w-full max-w-5xl">
             <!-- left side -->
-            <div class="flex flex-col items-start">
+            <div class="hero-left flex flex-col items-start mb-6 md:mb-0">
                 <h1 id="hover-text"
-                    class="text-3xl text-black border-b-2 border-black border-opacity-50 mb-4 cursor-pointer">
+                    class="text-2xl md:text-3xl text-black border-b-2 border-black border-opacity-50 mb-4 cursor-pointer">
                     cs + stats @ uoft&nbsp&nbsp&nbsp
                 </h1>
-
-                <script>
-                    const phrases = [
-                        "software eng\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
-                        "data engineer",
-                        "cs + stats @ uoft\u00A0\u00A0\u00A0"
-                    ];
-                    let index = 0;
-                    const el = document.getElementById("hover-text");
-
-                    el.addEventListener("mouseenter", () => {
-                        index = (index + 1) % phrases.length;
-                        el.textContent = phrases[index];
-                    });
-                </script>
 
                 <div class="flex space-x-2 mt-0">
                     <a href="https://www.linkedin.com/in/tharjiha-suthekara-966998272/" target="_blank">
@@ -204,10 +205,10 @@
             </div>
 
             <!-- right side -->
-            <div class="flex flex-col items-end">
-                <div class="mb-4 pb-1 mt-12" style="width: 250px;">
-                    <h1 class="text-3xl text-black border-b-2 border-black border-opacity-50 w-full text-right">
-                        tharjiha suthekara
+            <div class="hero-right flex flex-col items-end mt-6 md:mt-0">
+                <div class="mb-4 pb-1 md:mt-12">
+                    <h1 class="text-2xl md:text-3xl text-black border-b-2 border-black border-opacity-50 text-right">
+                        &nbsp&nbsptharjiha suthekara
                     </h1>
                 </div>
             </div>
@@ -237,22 +238,22 @@
                     <img src="picture/pfp.png">
                 </div>
 
-                <!-- rigth -->
+                <!-- right -->
                 <div class="w-full md:w-2/3">
                     <!-- header -->
                     <div class="mb-8">
-                        <h1 class="text-4xl md:text-3xl mb-4 text-black">about me</h1>
+                        <h1 class="text-3xl md:text-4xl mb-4 text-black">about me</h1>
                         <p class="text-base md:text-lg leading-relaxed text-black">
-                            hi 👋🏾, i’m tharjiha, studying computer science (software engineering) and statistics at
+                            hi 👋🏾, i'm tharjiha, studying computer science (software engineering) and statistics at
                             the university of toronto, building thoughtful solutions through code and data.
                         </p>
                     </div>
 
                     <!-- tabs navigation -->
-                    <div class="flex gap-6 mb-6 border-b-2 border-black border-opacity-30 pb-2">
-                        <button class="tab-button active text-xl md:text-xl text-black" data-tab="techstack">tech
+                    <div class="flex gap-4 md:gap-6 mb-6 border-b-2 border-black border-opacity-30 pb-2">
+                        <button class="tab-button active text-lg md:text-xl text-black" data-tab="techstack">tech
                             stack</button>
-                        <button class="tab-button text-xl md:text-xl text-gray-600" data-tab="projects">current
+                        <button class="tab-button text-lg md:text-xl text-gray-600" data-tab="projects">current
                             project</button>
                     </div>
 
@@ -262,19 +263,19 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="category-card p-6 rounded-xl text-center" onclick="openModal('languages')">
                                     <div class="text-4xl mb-2">💻</div>
-                                    <h3 class="text-lg text-black">languages</h3>
+                                    <h3 class="text-base md:text-lg text-black">languages</h3>
                                 </div>
                                 <div class="category-card p-6 rounded-xl text-center" onclick="openModal('frameworks')">
                                     <div class="text-4xl mb-2">📚</div>
-                                    <h3 class="text-lg text-black">frameworks & libraries</h3>
+                                    <h3 class="text-base md:text-lg text-black">frameworks & libraries</h3>
                                 </div>
                                 <div class="category-card p-6 rounded-xl text-center" onclick="openModal('databases')">
                                     <div class="text-4xl mb-2">🗄️</div>
-                                    <h3 class="text-lg text-black">databases</h3>
+                                    <h3 class="text-base md:text-lg text-black">databases</h3>
                                 </div>
                                 <div class="category-card p-6 rounded-xl text-center" onclick="openModal('design')">
                                     <div class="text-4xl mb-2">🎨</div>
-                                    <h3 class="text-lg text-black">design tools</h3>
+                                    <h3 class="text-base md:text-lg text-black">design tools</h3>
                                 </div>
                             </div>
                         </div>
@@ -461,6 +462,28 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Rotating text functionality
+        const phrases = [
+            "software eng\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
+            "data engineer",
+            "cs + stats @ uoft\u00A0\u00A0\u00A0"
+        ];
+        let index = 0;
+        const el = document.getElementById("hover-text");
+
+        // Use click on mobile, hover on desktop
+        if ('ontouchstart' in window) {
+            el.addEventListener("click", () => {
+                index = (index + 1) % phrases.length;
+                el.textContent = phrases[index];
+            });
+        } else {
+            el.addEventListener("mouseenter", () => {
+                index = (index + 1) % phrases.length;
+                el.textContent = phrases[index];
+            });
+        }
+
         // blurb section fade-in on scroll
         const blurbSection = document.getElementById('blurb-section');
         function handleBlurbFade() {

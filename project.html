@@ -11,113 +11,275 @@
 
     <!-- tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background: radial-gradient(circle, #D9D8FF 0%, #C3C3FF 100%);
+        }
+
+        /* Custom scrollbar for desktop */
+        @media (min-width: 768px) {
+            .scroll-container::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .scroll-container::-webkit-scrollbar-track {
+                background: rgba(195, 195, 255, 0.3);
+                border-radius: 10px;
+            }
+
+            .scroll-container::-webkit-scrollbar-thumb {
+                background: rgba(125, 125, 228, 0.6);
+                border-radius: 10px;
+            }
+
+            .scroll-container::-webkit-scrollbar-thumb:hover {
+                background: rgba(125, 125, 228, 0.8);
+            }
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+    </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center text-white"
-    style="background: radial-gradient(circle, #D9D8FF 0%, #C3C3FF 100%);">
+<body class="min-h-screen text-white">
 
     <!-- fixed top navbar -->
-
     <nav class="fixed top-0 w-full bg-black z-50">
         <div class="w-full px-2 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 flex justify-end">
             <!-- buttons  -->
             <div class="flex space-x-2 sm:space-x-3 md:space-x-4">
                 <a href="index.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">ABOUT</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">ABOUT</a>
                 <a href="project.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">PROJECTS</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">PROJECTS</a>
                 <a href="experience.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">EXPERIENCE</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">EXPERIENCE</a>
                 <a href="contact.html"
-                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-base sm:text-lg md:text-xl rounded hover:text-white transition">CONTACT</a>
+                    class="px-2 sm:px-3 md:px-4 py-1 sm:py-2 md:py-2 bg-black text-[#C3C3FF] text-sm sm:text-base md:text-xl rounded hover:text-white transition">CONTACT</a>
             </div>
         </div>
     </nav>
 
+    <!-- projects section -->
+    <div class="flex flex-col items-center justify-center w-full min-h-screen pt-20 md:pt-24 pb-10">
+        <h1 class="text-black text-4xl md:text-5xl mb-6 md:mb-8 tracking-tight px-4">projects</h1>
 
-    <div class="flex flex-col items-center justify-center w-full min-h-[80vh]">
-        <h1 class="text-black text-5xl mb-5 tracking-tight">projects</h1>
-        <div class="w-full px-8">
-            <div
-                class="flex overflow-x-auto space-x-8 py-6 scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-gray-100">
+        <!-- Desktop: Horizontal scroll -->
+        <div class="hidden md:block w-full px-8">
+            <div class="scroll-container flex overflow-x-auto space-x-8 py-6">
+
+                <!-- library-system -->
                 <a href="https://github.com/tharjiha/library-system" target="_blank"
-                    class="min-w-[550px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    library-system
+                    class="project-card min-w-[550px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">library-system</h2>
                     <img src="picture/abookpage.png" width="500" class="rounded-sm py-2">
-                    <div class="flex flex-row gap-2 w-full">
+                    <div class="flex flex-row gap-2 w-full flex-wrap">
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">HTML</p>
-                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">TAILWIND CSS</p>
+                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">TAILWIND
+                            CSS</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">FLASK</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">SQL</p>
                     </div>
-                    <p class="font-normal text-base py-2">A library management system to manage books, users, borrowing, and email reminders, with a modern Tailwind UI and OpenLibrary integration.</p>
+                    <p class="font-normal text-base py-2">A library management system to manage books, users, borrowing,
+                        and email reminders, with a modern Tailwind UI and OpenLibrary integration.</p>
                 </a>
+
+                <!-- tetris-assembly -->
                 <a href="https://github.com/tharjiha/tetris-assembly" target="_blank"
-                    class="min-w-[300px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    tetris-assembly
+                    class="project-card min-w-[300px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">tetris-assembly</h2>
                     <img src="picture/tetris.png" width="250" class="rounded-sm py-2">
-                    <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full self-start">ASSEMBLY</p>
-                    <p class="font-normal text-base py-2">A classic Tetris clone built entirely in MIPS Assembly. Developed as a CSCB58S 2025 course project. </p>
+                    <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full self-start">
+                        ASSEMBLY</p>
+                    <p class="font-normal text-base py-2">A classic Tetris clone built entirely in MIPS Assembly.
+                        Developed as a CSCB58S 2025 course project.</p>
                 </a>
+
+                <!-- wellglobe -->
                 <a href="https://github.com/kr1shap/wellglobe" target="_blank"
-                    class="min-w-[450px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    wellglobe
+                    class="project-card min-w-[450px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">wellglobe</h2>
                     <img src="picture/wellglobe.png" width="400" class="rounded-sm py-2">
-                    <div class="flex flex-row gap-2 w-full">
+                    <div class="flex flex-row gap-2 w-full flex-wrap">
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">HTML</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">REACT</p>
-                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">FAST API</p>
-                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">TYPESCRIPT</p>
+                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">FAST API
+                        </p>
+                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">TYPESCRIPT
+                        </p>
                     </div>
-                    <p class="font-normal text-base py-2">A travel health advisory app that helps you stay safe with real-time alerts, vaccine checklists, nearby clinic info, and AI-powered travel health guidance. [TerraHacks 25']</p>
+                    <p class="font-normal text-base py-2">A travel health advisory app that helps you stay safe with
+                        real-time alerts, vaccine checklists, nearby clinic info, and AI-powered travel health guidance.
+                        [TerraHacks 25']</p>
                 </a>
+
+                <!-- greenerthanyouthink -->
                 <a href="https://github.com/kr1shap/greenerthankyouthink" target="_blank"
-                    class="min-w-[450px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    greenerthanyouthink
+                    class="project-card min-w-[450px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">greenerthanyouthink</h2>
                     <img src="picture/greenerthanyouthink.png" width="400" class="rounded-sm py-2">
-                    <div class="flex flex-row gap-2 w-full">
+                    <div class="flex flex-row gap-2 w-full flex-wrap">
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">HTML</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">CSS</p>
-                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">JAVASCRIPT</p>
+                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">JAVASCRIPT
+                        </p>
                     </div>
-                    <p class="font-normal text-base py-2">A cute, indie-style web app designed as a safe space for adolescents to check in on their mood, share thoughts, and grow a virtual garden [ElleHacks 25']</p>
+                    <p class="font-normal text-base py-2">A cute, indie-style web app designed as a safe space for
+                        adolescents to check in on their mood, share thoughts, and grow a virtual garden [ElleHacks 25']
+                    </p>
                 </a>
+
+                <!-- export-to-anki -->
                 <a href="https://github.com/tharjiha/export-to-anki" target="_blank"
-                    class="min-w-[400px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    export-to-anki
+                    class="project-card min-w-[400px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">export-to-anki</h2>
                     <img src="picture/exportanki.png" width="350" class="rounded-sm py-2">
-                    <div class="flex flex-row gap-2 w-full">
+                    <div class="flex flex-row gap-2 w-full flex-wrap">
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">HTML</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">CSS</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">FLASK</p>
-                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">JAVASCRIPT</p>
+                        <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">JAVASCRIPT
+                        </p>
                     </div>
-                    <p class="font-normal text-base py-2">A lightweight web app that instantly transforms Quizlet flashcards into importable Anki decks. Built with Flask and JavaScript! </p>
+                    <p class="font-normal text-base py-2">A lightweight web app that instantly transforms Quizlet
+                        flashcards into importable Anki decks. Built with Flask and JavaScript!</p>
                 </a>
+
+                <!-- study-flow -->
                 <a href="https://github.com/tharjiha/studyflow" target="_blank"
-                    class="min-w-[550px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    study-flow
+                    class="project-card min-w-[550px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">study-flow</h2>
                     <img src="picture/studyflow.png" width="500" class="rounded-sm py-2">
-                    <div class="flex flex-row gap-2 w-full">
+                    <div class="flex flex-row gap-2 w-full flex-wrap">
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">SWIFT</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">FIGMA</p>
                         <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full">UI/UX
                             DESIGN</p>
                     </div>
                     <p class="font-normal text-base py-2">StudyFlow – iOS productivity app for students. Built quizzing
-                        feature in Swift/Xcode, designed the rest in Figma. </p>
-
+                        feature in Swift/Xcode, designed the rest in Figma.</p>
                 </a>
+
+                <!-- balloon-defence -->
                 <a href="https://github.com/tharjiha/balloon-defence" target="_blank"
-                    class="min-w-[350px] h-100 border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center justify-center text-black text-2xl transform transition-transform duration-300 hover:-translate-y-3 hover:scale-105 hover:bg-[#C3C3FF] px-5 py-4">
-                    balloon-defence
+                    class="project-card min-w-[350px] border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm flex flex-col items-center text-black px-5 py-4 hover:bg-[#C3C3FF]">
+                    <h2 class="text-2xl mb-2">balloon-defence</h2>
                     <img src="picture/balloondefence.png" width="300" class="rounded-sm py-2">
                     <p class="font-normal italic text-sm bg-black text-[#C3C3FF] px-3 py-1 rounded-full self-start">JAVA
                     </p>
-                    <p class="font-normal text-base py-2">Balloon Defense is a modified take on the classic Tower
-                        Defense game. </p>
+                    <p class="font-normal text-base py-2">Balloon Defense is a modified take on the classic Tower
+                        Defense game.</p>
                 </a>
             </div>
+        </div>
+
+        <!-- Mobile/Tablet: Vertical stack -->
+        <div class="md:hidden w-full px-4 space-y-6">
+
+            <!-- library-system -->
+            <a href="https://github.com/tharjiha/library-system" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">library-system</h2>
+                <img src="picture/abookpage.png" class="w-full rounded-sm py-2">
+                <div class="flex flex-row gap-2 w-full flex-wrap">
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">HTML</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">TAILWIND CSS
+                    </p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">FLASK</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">SQL</p>
+                </div>
+                <p class="font-normal text-sm text-black py-2">A library management system to manage books, users,
+                    borrowing, and email reminders, with a modern Tailwind UI and OpenLibrary integration.</p>
+            </a>
+
+            <!-- tetris-assembly -->
+            <a href="https://github.com/tharjiha/tetris-assembly" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">tetris-assembly</h2>
+                <img src="picture/tetris.png" class="w-3/4 mx-auto rounded-sm py-2">
+                <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full inline-block">
+                    ASSEMBLY</p>
+                <p class="font-normal text-sm text-black py-2">A classic Tetris clone built entirely in MIPS Assembly.
+                    Developed as a CSCB58S 2025 course project.</p>
+            </a>
+
+            <!-- wellglobe -->
+            <a href="https://github.com/kr1shap/wellglobe" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">wellglobe</h2>
+                <img src="picture/wellglobe.png" class="w-full rounded-sm py-2">
+                <div class="flex flex-row gap-2 w-full flex-wrap">
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">HTML</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">REACT</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">FAST API</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">TYPESCRIPT</p>
+                </div>
+                <p class="font-normal text-sm text-black py-2">A travel health advisory app that helps you stay safe
+                    with real-time alerts, vaccine checklists, nearby clinic info, and AI-powered travel health
+                    guidance. [TerraHacks 25']</p>
+            </a>
+
+            <!-- greenerthanyouthink -->
+            <a href="https://github.com/kr1shap/greenerthankyouthink" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">greenerthanyouthink</h2>
+                <img src="picture/greenerthanyouthink.png" class="w-full rounded-sm py-2">
+                <div class="flex flex-row gap-2 w-full flex-wrap">
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">HTML</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">CSS</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">JAVASCRIPT</p>
+                </div>
+                <p class="font-normal text-sm text-black py-2">A cute, indie-style web app designed as a safe space for
+                    adolescents to check in on their mood, share thoughts, and grow a virtual garden [ElleHacks 25']</p>
+            </a>
+
+            <!-- export-to-anki -->
+            <a href="https://github.com/tharjiha/export-to-anki" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">export-to-anki</h2>
+                <img src="picture/exportanki.png" class="w-full rounded-sm py-2">
+                <div class="flex flex-row gap-2 w-full flex-wrap">
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">HTML</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">CSS</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">FLASK</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">JAVASCRIPT</p>
+                </div>
+                <p class="font-normal text-sm text-black py-2">A lightweight web app that instantly transforms Quizlet
+                    flashcards into importable Anki decks. Built with Flask and JavaScript!</p>
+            </a>
+
+            <!-- study-flow -->
+            <a href="https://github.com/tharjiha/studyflow" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">study-flow</h2>
+                <img src="picture/studyflow.png" class="w-full rounded-sm py-2">
+                <div class="flex flex-row gap-2 w-full flex-wrap">
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">SWIFT</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">FIGMA</p>
+                    <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full">UI/UX DESIGN
+                    </p>
+                </div>
+                <p class="font-normal text-sm text-black py-2">StudyFlow – iOS productivity app for students. Built
+                    quizzing feature in Swift/Xcode, designed the rest in Figma.</p>
+            </a>
+
+            <!-- balloon-defence -->
+            <a href="https://github.com/tharjiha/balloon-defence" target="_blank"
+                class="project-card block w-full border-2 border-black bg-[#D9D8FF] bg-opacity-80 rounded-xl shadow-sm p-4 active:bg-[#C3C3FF]">
+                <h2 class="text-xl md:text-2xl mb-2 text-black text-center">balloon-defence</h2>
+                <img src="picture/balloondefence.png" class="w-3/4 mx-auto rounded-sm py-2">
+                <p class="font-normal italic text-xs bg-black text-[#C3C3FF] px-2 py-1 rounded-full inline-block">JAVA
+                </p>
+                <p class="font-normal text-sm text-black py-2">Balloon Defense is a modified take on the classic Tower
+                    Defense game.</p>
+            </a>
         </div>
     </div>
 
